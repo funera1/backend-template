@@ -6,7 +6,7 @@ data:
   log.level: debug
   applications_api: argocd
   # The address of Argo CD API endpoint - defaults to argocd-server.argocd
-  argocd.server_addr: 35.223.215.231
+  argocd.server_addr: {{ .Values.argocd.server }}
   # Whether to use GRPC-web protocol instead of GRPC over HTTP/2
   argocd.grpc_web: "true"
   # Whether to ignore invalid TLS cert from Argo CD API endpoint

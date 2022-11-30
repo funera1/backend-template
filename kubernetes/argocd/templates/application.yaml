@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    argocd-image-updater.argoproj.io/write-back-method: git
+    argocd-image-updater.argoproj.io/image-list: alias={{ .Values.argocd-image-updater.image }}
+    argocd-image-updater.argoproj.io/alias.helm.image-name: param.image.name
+    argocd-image-updater.argoproj.io/alias.helm.image-tag: param.image.tag
+    argocd-image-updater.argoproj.io/api.update-strategy: digest
+  name: {{ .Values.argocd.metadata.name }}
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: {{ .Values.argocd.source.repoURL }}
+    path: {{ .Values.argocd.source.path }}
+    targetRevision: release
+    helm:
+      fileParameters:
+        - name: param
+          path: .argocd-source-aruku-api.yaml
+      valueFiles:
+        - values.yaml
+  destination:
+    server: {{ .Values.argocd.destination.server }}
+    namespace: {{ .Values.argocd.destination.namespace }}
+  syncPolicy:
+    automated:
+      prune: true

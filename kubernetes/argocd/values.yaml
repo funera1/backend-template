@@ -1,0 +1,10 @@
+argocd:
+  server: "ArgoCD API endpoint IP address"
+  source:
+    repoURL: "対象のgithub url"
+    path: "デプロイしたいhelmのpath"
+  destination:
+    server: "デプロイ先のserver ip"
+    namespace: "デプロイ先のnamespace"
+argocd-image-updater:
+  image: "docker.io/funera1/aruku-api"
