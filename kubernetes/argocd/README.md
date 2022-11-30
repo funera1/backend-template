@@ -1,6 +1,6 @@
 # Argo CDとArgo CD Image Updaterのtemplate
 ## 手順
-1. Argo CDのsetup
+1. Argo CDのsetup  
     a. Argo CDのinstall
     ```
     kubectl create namespace argocd
