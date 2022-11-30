@@ -1,6 +1,6 @@
 # Argo CDとArgo CD Image Updaterのtemplate
 ## 手順
-1. Argo CDのsetup
+1. Argo CDのsetup  
     a. Argo CDのinstall
     ```
     kubectl create namespace argocd
@@ -25,7 +25,7 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj-labs/argoc
 3. values.yamlに適切な値を入れて、application.yamlをdeployする
 
 ## 参考
-Argo CD: https://argo-cd.readthedocs.io/
+Argo CD: https://argo-cd.readthedocs.io/  
 Argo CD Image Updater: https://argocd-image-updater.readthedocs.io/
 
 ## 注意
